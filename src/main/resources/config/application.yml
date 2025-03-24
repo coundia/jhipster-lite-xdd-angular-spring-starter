@@ -1,0 +1,90 @@
+logging:
+  level:
+    com:
+      mycompany:
+        myapp: INFO
+spring:
+  application:
+    name: JhipsterSampleApplication
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      auto-commit: false
+      poolName: Hikari
+    password: ''
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/jhipsterSampleApplication
+    username: jhipsterSampleApplication
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: deferred
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+    open-in-view: false
+    properties:
+      hibernate:
+        connection:
+          provider_disables_autocommit: true
+        generate_statistics: false
+        jdbc:
+          batch_size: 25
+          time_zone: UTC
+        order_inserts: true
+        order_updates: true
+        query:
+          fail_on_pagination_over_collection_fetch: true
+          in_clause_parameter_padding: true
+  jackson:
+    default-property-inclusion: non_absent
+  security:
+    user:
+      name: admin
+      password: $2a$12$cRKS9ZURbdJIaRsKDTDUmOrH4.B.2rokv8rrkrQXr2IR2Hkna484O
+      roles: ADMIN
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: always
+  endpoints:
+    web:
+      base-path: /management
+      exposure:
+        include:
+        - configprops
+        - env
+        - health
+        - info
+        - logfile
+        - loggers
+        - threaddump
+  info:
+    env:
+      enabled: true
+    # Git Information
+    git:
+      enabled: true
+      mode: full
+server:
+  port: 8080
+application:
+  security:
+    jwt-base64-secret: MzMxMzBhNTAyY2Y1MWM4ODI3ZjEwZDQ1OGExMjY2Zjg0NTFlZTMyNmNkZGZlNzhlNDc3NjA2MDJmOTAwYjdmMg==
+    content-security-policy: 'default-src ''self''; frame-src ''self'' data:; script-src
+      ''self'' ''unsafe-inline'' ''unsafe-eval'' https://storage.googleapis.com; style-src
+      ''self'' ''unsafe-inline'' https://fonts.googleapis.com; img-src ''self'' data:;
+      font-src ''self'' data: https://fonts.gstatic.com;'
+    remember-me-token-validity: P365D
+    token-validity: P1D
+springdoc:
+  enable-native-support: true
+  swagger-ui:
+    operationsSorter: alpha
+    tagsSorter: alpha
+    tryItOutEnabled: true

@@ -1,0 +1,21 @@
+logging:
+  config: classpath:logback.xml
+  level:
+    com:
+      mycompany:
+        myapp: 'OFF'
+spring:
+  main:
+    banner-mode: 'off'
+  datasource:
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+    hikari:
+      maximum-pool-size: 2
+    password: ''
+    url: jdbc:tc:postgresql:17.4:///jhipsterSampleApplication?TC_TMPFS=/testtmpfs:rw
+    username: jhipsterSampleApplication
+server:
+  port: 0
+application:
+  security:
+    jwt-base64-secret: N2YyYWI1Mzg2ZTAxN2ZkMjM3NjczNTk3MDIwZWFiNzE2MWMwY2JkYWRmMmEzZThiZWVlZjRhMzkyODllOGE5MQ==
